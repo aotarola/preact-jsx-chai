@@ -22,6 +22,12 @@ describe('preact-jsx-chai', () => {
 				expect(<jsx />).to.deep.equal(<jsx />);
 			});
 
+
+			it('be triggered when JSX has null evaluation next to a valid sibling node', ()  => {
+				expect(<jsx><span/>{null}</jsx>).to.deep.equal(<jsx><span/></jsx>);
+			});
+
+
 			it('not be triggered when JSX is not tested', () => {
 				expect(<jsx />).to.deep.equal({
 					nodeName: 'jsx',
